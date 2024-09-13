@@ -1,15 +1,19 @@
 # import
 import os
+import bs4
 from dotenv import load_dotenv
 from langchain_chroma import Chroma
-from langchain_community.document_loaders import TextLoader
+from langchain_community.document_loaders import WebBaseLoader
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_text_splitters import CharacterTextSplitter
 
 load_dotenv()
 
-# load the document and split it into chunks
-loader = TextLoader("C:/Users/Asus/Downloads/test.txt")
+bs4_strainer = bs4.SoupStrainer(class_=("post-title", "post-header", "post-content"))
+loader = WebBaseLoader(
+    web_paths=("https://lilianweng.github.io/posts/2023-06-23-agent/",),
+    bs_kwargs={"parse_only": bs4_strainer},
+)
 documents = loader.load()
 
 # split it into chunks
