@@ -9,8 +9,6 @@ from langchain_community.document_loaders import WebBaseLoader
 
 load_dotenv()
 
-# ... (rest of your existing code from the provided example)
-
 def scrape_and_add_documents():
     bs4_strainer = bs4.SoupStrainer(class_=("post-title", "post-header", "post-content"))
     loader = WebBaseLoader(
