@@ -1,4 +1,44 @@
-## Caching Strategy
+# Docker Guide
+
+### Step 1: Set Environment Variables
+
+Ensure that your `.env` file contains all the necessary environment variables. This file should be placed in the root directory of your project.
+
+**Example `.env` file:**
+
+```bash
+GOOGLE_API_KEY=your_google_api_key
+```
+### Step 2: Build the Docker Image
+
+Navigate to the root directory of your project where the `Dockerfile` is located and run the following command to build the Docker image:
+
+```bash
+docker build -t my-flask-app .
+```
+This command builds an image named `my-flask-app` from the `Dockerfile` in the current directory.
+
+### Step 3: Run the Docker Container
+
+After building the image, you can run a container from it with the following command:
+
+```bash
+docker run -p 5000:5000 my-flask-app
+```
+This will start your application and make it accessible on port 5000.
+
+###Testing
+```
+curl http://localhost:5000/health
+```
+and
+
+```
+curl -X POST -H "Content-Type: application/json" -d "{\"text\": \"What is component one?\", \"top_k\": 2, \"threshold\": 0.2, \"user_id\": 1234}" http://localhost:5000/search
+
+```
+
+# Caching Strategy
 
 A caching mechanism to store the results of frequently asked queries. This helps reduce the load on the vector database and significantly speeds up response times for repeated queries.
 
