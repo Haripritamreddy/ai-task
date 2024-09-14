@@ -7,7 +7,7 @@ Ensure that your `.env` file contains all the necessary environment variables. T
 **Example `.env` file:**
 
 ```bash
-GOOGLE_API_KEY=your_google_api_key
+GOOGLE_API_KEY=your_google_api_key(https://aistudio.google.com/)
 ```
 ### Step 2: Build the Docker Image
 
