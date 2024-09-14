@@ -3,3 +3,4 @@ langchain-chroma
 langchain-community
 python-dotenv
 beautifulsoup4
+flask
